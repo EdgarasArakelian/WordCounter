@@ -8,11 +8,14 @@ It can be run in two ways:
   This application creates a file for each first unique letter of word that was found in the texts and exports the results for each word and the number of occurrences. It also creates “results.txt” with excluded words and how many of them were excluded. Additionally, if numbers are not ignored result files for them will be created too.
 Words to exclude has to be in file named "exclude.txt" and inside the root directory.
 ### Usage:
-- Navigate to src/Solution directory;
+- Navigate to src directory;
 
-- Compile “Runnable” file: ``javac Runnable.java``
+- Compile:  
+``javac ./Extra/MultiThreadRunner.java``  
+``javac ./Solution/Runnable.java``
 	
-- Run the application: ``java Runnable <rootFolder> <F1> <F2>``
+- Run the application:  
+ ``java Solution/Runnable <rootFolder> <F1> <F2>``
 
 rootFolder – This parameter can be name or full/relative path of the directory. 
 
@@ -23,16 +26,16 @@ F2 – second flag must be “-T” to keep numbers in files. Otherwise they wil
 Examples:  
 
         # Data files are in folder "./folderName"; Multithreaded version; Numbers will be kept;  
-	    java Runnable “folderName” -MT -T
+	    java Solution/Runnable “folderName” -MT -T
 		
 	    # Data files are in folder "~/folderName"; Multithreaded version; Numbers will not be kept;
-	    java Runnable "~/rootFolder” -MT -F
+	    java Solution/Runnable "~/rootFolder” -MT -F
 	    
 	    # Data files are in folder "./rootFolder"; Single thread version; Numbers will be kept;
-	    java Runnable “rootFolder” -ST -T
+	    java Solution/Runnable “rootFolder” -ST -T
 		
 	    # Data files are in folder "./folderName"; Single thread version; Numbers will not be kept;
-	    java Runnable “rootFolder” -ST -F
+	    java Solution/Runnable “rootFolder” -ST -F
 
    As mentioned before any string can be used instead of “ST” and “F” values. Rule is simple: You always must provide exactly 3 arguments for the application to run.
 
