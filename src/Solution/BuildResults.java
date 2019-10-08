@@ -11,14 +11,14 @@ import java.util.Map;
 public class BuildResults {
     ArrayList<String> words = new ArrayList<>();
 
-    void buildListFromHash(HashMap<String, Integer> countedWords){
+    void buildListFromHash(Map<String, Integer> countedWords){
         for (Map.Entry m : countedWords.entrySet()) {
             words.add(m.getKey().toString());
         }
         Collections.sort(words);
     }
 
-    void printResultsToMultipleFiles(HashMap<String, Integer> countedWords, ArrayList<String> excludedWords) throws IOException {
+    void printResultsToMultipleFiles(Map<String, Integer> countedWords, ArrayList<String> excludedWords) throws IOException {
         ArrayList<String> wordsToPrint = new ArrayList<>();
         char fLetter; // current file first letter
         char pLetter = ' '; // previous file first letter
@@ -52,7 +52,7 @@ public class BuildResults {
     }
 
     // Writing to a single file.
-    private void printToFile(ArrayList<String> wordsToPrint, String printFileName, HashMap<String, Integer> countedWords) throws IOException {
+    private void printToFile(ArrayList<String> wordsToPrint, String printFileName, Map<String, Integer> countedWords) throws IOException {
         String fileName = printFileName+".txt";
         FileWriter fileWriter = new FileWriter(fileName);
         PrintWriter printWriter = new PrintWriter(fileWriter);
@@ -65,7 +65,7 @@ public class BuildResults {
         fileWriter.close();
     }
 
-    public void buildResults(HashMap<String, Integer> countedWords, ArrayList<String> excludedWords) throws IOException {
+    public void buildResults(Map<String, Integer> countedWords, ArrayList<String> excludedWords) throws IOException {
         buildListFromHash(countedWords); // Taking all words from HashMap and storing them in the List.
         printResultsToMultipleFiles(countedWords, excludedWords);
         printToFile(excludedWords, "results", countedWords); // Printing excluded words.
